@@ -13,7 +13,7 @@ namespace Bakery.Models
     {
       Name = vendorName;
       _instances.Add(this);
-      Id = _instances.Count;
+      //Id = _instances.Count;
       Orders = new List<Order> { };
     }
 
