@@ -34,11 +34,11 @@ namespace Bakery.Controllers
       Vendor selectedVendor = Vendor.Find(id);
       List<Order> vendorOrders = selectedVendor.Orders;
       model.Add("vendor", selectedVendor);
-      model.Add("Orders", venderOrders);
+      model.Add("Orders", vendorOrders);
       return View(model);
     }
 
-    // This one creates new Orders within a given Vendor, not new Vendorss:
+    // This one creates new Orders within a given Vendor, not new Vendors:
     [HttpPost("/vendors/{vendorId}/orders")]
     public ActionResult Create(int vendorId, string orderDescription)
     {
@@ -46,8 +46,8 @@ namespace Bakery.Controllers
       Vendor foundVendor = Vendor.Find(vendorId);
       Order newOrder = new Order(orderDescription);
       foundVendor.AddOrder(newOrder);
-      List<Order> vendorOrder = foundVendor.Order;
-      model.Add("orders", vendorOrders);
+      List<Order> vendorOrder = foundVendor.Orders;
+      model.Add("orders", vendorOrder);
       model.Add("vendor", foundVendor);
       return View("Show", model);
     }
