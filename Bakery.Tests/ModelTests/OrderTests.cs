@@ -1,24 +1,24 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using ToDoList.Models;
+using Bakery.Models;
 using System;
 
-namespace ToDoList.Tests
+namespace Bakery.Tests
 {
   [TestClass]
-  public class ItemTest : IDisposable
+  public class OrderTest : IDisposable
   {
 
     public void Dispose()
     {
-      Item.ClearAll();
+      Order.ClearAll();
     }
 
     [TestMethod]
-    public void ItemConstructor_CreatesInstanceOfItem_Item()
+    public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
-      Item newItem = new Item("test");
-      Assert.AreEqual(typeof(Item), newItem.GetType());
+      Order newOrder = new Order("test");
+      Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
 
     [TestMethod]
@@ -28,8 +28,8 @@ namespace ToDoList.Tests
       string description = "Walk the dog.";
 
       //Act
-      Item newItem = new Item(description);
-      string result = newItem.Description;
+      Order newOrder = new Order(description);
+      string result = newOrder.Description;
 
       //Assert
       Assert.AreEqual(description, result);
@@ -40,75 +40,75 @@ namespace ToDoList.Tests
     {
       //Arrange
       string description = "Walk the dog.";
-      Item newItem = new Item(description);
+      Order newOrder = new Order(description);
 
       //Act
       string updatedDescription = "Do the dishes";
-      newItem.Description = updatedDescription;
-      string result = newItem.Description;
+      newOrder.Description = updatedDescription;
+      string result = newOrder.Description;
 
       //Assert
       Assert.AreEqual(updatedDescription, result);
     }
 
     [TestMethod]
-    public void GetAll_ReturnsEmptyList_ItemList()
+    public void GetAll_ReturnsEmptyList_OrderList()
     {
       // Arrange
-      List<Item> newList = new List<Item> { };
+      List<Order> newList = new List<Order> { };
 
       // Act
-      List<Item> result = Item.GetAll();
+      List<Order> result = Order.GetAll();
 
       // Assert
       CollectionAssert.AreEqual(newList, result);
     }
 
     [TestMethod]
-    public void GetAll_ReturnsItems_ItemList()
+    public void GetAll_ReturnsOrders_OrderList()
     {
       //Arrange
       string description01 = "Walk the dog";
       string description02 = "Wash the dishes";
-      Item newItem1 = new Item(description01);
-      Item newItem2 = new Item(description02);
-      List<Item> newList = new List<Item> { newItem1, newItem2 };
+      Order newOrder1 = new Order(description01);
+      Order newOrder2 = new Order(description02);
+      List<Order> newList = new List<Order> { newOrder1, newOrder2 };
 
       //Act
-      List<Item> result = Item.GetAll();
+      List<Order> result = Order.GetAll();
 
       //Assert
       CollectionAssert.AreEqual(newList, result);
     }
 
     [TestMethod]
-    public void GetId_ItemsInstantiateWithAnIdAndGetterReturns_Int()
+    public void GetId_OrdersInstantiateWithAnIdAndGetterReturns_Int()
     {
       //Arrange
       string description = "Walk the dog.";
-      Item newItem = new Item(description);
+      Order newOrder = new Order(description);
 
       //Act
-      int result = newItem.Id;
+      int result = newOrder.Id;
 
       //Assert
       Assert.AreEqual(1, result);
     }
 
     [TestMethod]
-    public void Find_ReturnsCorrectItem_Item()
+    public void Find_ReturnsCorrectOrder_Order()
     {
       //Arrange
       string description01 = "Walk the dog";
       string description02 = "Wash the dishes";
-      Item newItem1 = new Item(description01);
-      Item newItem2 = new Item(description02);
+      Order newOrder1 = new Order(description01);
+      Order newOrder2 = new Order(description02);
 
       //Act
-      Item result = Item.Find(2);
+      Order result = Order.Find(2);
 
       //Assert
-      Assert.AreEqual(newItem2, result);
+      Assert.AreEqual(newOrder2, result);
     }
   }
 }
