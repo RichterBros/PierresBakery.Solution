@@ -17,7 +17,7 @@ namespace Bakery.Tests
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
-      Vendor newVendor = new Vendor("");
+      Vendor newVendor = new Vendor("VooDoo", "Donuts");
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
 
@@ -25,8 +25,9 @@ namespace Bakery.Tests
     public void GetName_ReturnsName_String()
     {
       //Arrange
+      string vendorDescription = "Bakery";
       string name = "Test Vendor";
-      Vendor newVendor = new Vendor(name);
+      Vendor newVendor = new Vendor(name, vendorDescription);
 
       //Act
       string result = newVendor.Name;
@@ -39,8 +40,9 @@ namespace Bakery.Tests
       public void GetId_ReturnsVendorId_Int()
       {
         //Arrange
+        string vendorDescription = "Bakery";
         string name = "Test Vendor";
-        Vendor newVendor = new Vendor(name);
+        Vendor newVendor = new Vendor(name, vendorDescription);
 
         //Act
         int result = newVendor.Id;
@@ -53,10 +55,11 @@ namespace Bakery.Tests
       public void GetAll_ReturnsAllVendorObjects_VendorList()
       {
         //Arrange
+        string vendorDescription = "Bakery";
         string name01 = "Roses";
         string name02 = "VooDoo";
-        Vendor newVendor1 = new Vendor(name01);
-        Vendor newVendor2 = new Vendor(name02);
+        Vendor newVendor1 = new Vendor(name01, vendorDescription);
+        Vendor newVendor2 = new Vendor(name02, vendorDescription);
         List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
 
         //Act
@@ -70,10 +73,11 @@ namespace Bakery.Tests
       public void Find_ReturnsCorrectVendor_Vendor()
       {
         //Arrange
+        string vendorDescription = "Bakery";
         string name01 = "Roses";
         string name02 = "VooDoo";
-        Vendor newVendor1 = new Vendor(name01);
-        Vendor newVendor2 = new Vendor(name02);
+        Vendor newVendor1 = new Vendor(name01, vendorDescription);
+        Vendor newVendor2 = new Vendor(name02, vendorDescription);
 
         //Act
         Vendor result = Vendor.Find(2);
@@ -86,11 +90,14 @@ namespace Bakery.Tests
       public void AddOrder_AssociatesOrderWithVendor_OrderList()
       {
         //Arrange
+        string vendorDescription = "Bakery";
+        string date = "Saturday";
+        string price= "100";
         string description = "Donuts";
-        Order newOrder = new Order(description);
+        Order newOrder = new Order(description, date, price );
         List<Order> newList = new List<Order> { newOrder };
         string name = "Roses";
-        Vendor newVendor = new Vendor(name);
+        Vendor newVendor = new Vendor(name, vendorDescription);
         newVendor.AddOrder(newOrder);
 
         //Act
