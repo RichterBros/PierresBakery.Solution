@@ -33,11 +33,10 @@ namespace Bakery.Models
     {
       return _instances[searchId - 1];
     }
-
-
     public void AddOrder(Order order)
     {
       Orders.Add(order);
     }
   }
 }
+

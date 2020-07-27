@@ -38,7 +38,6 @@ namespace Bakery.Controllers
       return View(model);
     }
 
-    // This one creates new Orders within a given Vendor, not new Vendors:
     [HttpPost("/vendors/{vendorId}/orders")]
     public ActionResult Create(int vendorId, string orderDescription, string date, string price)
     {
