@@ -8,7 +8,7 @@ This is an application to help the owner track the vendors that purchase baked g
 
 ## Specifications
 
-**Behavior**: User will click an vendors name to go to a separate page to view order and its details and be ableto add a new order.
+**Behavior**: User will click an vendors name to go to a separate page to view order and its details and be able to add a new order.
   * Click on vendor name
   * View details about order/ add new order.
 
